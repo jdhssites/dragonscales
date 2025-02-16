@@ -422,7 +422,26 @@ loginForm.addEventListener('submit', (e) => {
     <h2 id="local-storage-header">Saved Local Storage Data:</h2>
     <ul id="local-storage-list"></ul>
     <button id="clear-local-storage" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-2 rounded" onclick="clearLocalStorage()">Clear Local Storage</button>
+    <button id="toggle-local-storage" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-2 rounded" onclick="toggleLocalStorage()">Hide</button>
 </div>
+
+<div id="show-local-storage" class="fixed top-1/4 left-0 p-4 flex space-x-4 z-50 bg-gray-800 text-white rounded shadow-md animate-fade-in -translate-y-1/4 hidden md:top-1/2 md:-translate-y-1/2"> 
+    <button id="show-local-storage-btn" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-2 rounded" onclick="toggleLocalStorage()">Show</button>
+</div>
+
+<script>
+    function toggleLocalStorage() {
+        const localStorageData = document.getElementById('local-storage-data');
+        const showLocalStorage = document.getElementById('show-local-storage');
+        if (localStorageData.classList.contains('hidden')) {
+            localStorageData.classList.remove('hidden');
+            showLocalStorage.classList.add('hidden');
+        } else {
+            localStorageData.classList.add('hidden');
+            showLocalStorage.classList.remove('hidden');
+        }
+    }
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
