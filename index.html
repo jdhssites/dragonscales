@@ -228,40 +228,103 @@ function changeTheme() {
     .light-mode .shadow-md {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
-
- .dark-mode {
+    
+.dark-mode {
     background-color: #000;
+    color: var(--text-color);
 }
 .dark-mode .bg-white {
     background-color: #000;
 }
+.dark-mode .text-white {
+    color: var(--text-color);
+}
 .dark-mode .text-gray-700 {
-    color: #fff;
+    color: var(--text-color);
 }
 .dark-mode .text-gray-800 {
-    color: #fff;
+    color: var(--text-color);
 }
 .dark-mode .text-gray-900 {
-    color: #fff;
+    color: var(--text-color);
 }
 .dark-mode .bg-gray-100 {
     background-color: #000;
 }
 .dark-mode .bg-gray-200 {
-    background-color: #333;
+    background-color: #000;
 }
 .dark-mode .bg-gray-800 {
     background-color: #000;
 }
 .dark-mode .shadow-md {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-.dark-mode #theme {
-    color: #fff;
+
+:root {
+    --text-color: #fff;
 }
-.dark-mode #theme option {
-    color: #fff;
-    background-color: #000;
+
+.green-text {
+    --text-color: #34C759;
+}
+
+.red-text {
+    --text-color: #FF3737;
+}
+
+.golden-text {
+    --text-color: #FFD700;
+}
+
+.rainbow-text {
+    animation: rainbow 2s infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        --text-color: #FF3737;
+    }
+    20% {
+        --text-color: #FFD700;
+    }
+    40% {
+        --text-color: #34C759;
+    }
+    60% {
+        --text-color: #4B0082;
+    }
+    80% {
+        --text-color: #8F0A1A;
+    }
+    100% {
+        --text-color: #FF3737;
+    }
+}
+
+function changeTextColor() {
+    var textColor = document.getElementById("text-color").value;
+    localStorage.setItem('textColor', textColor);
+
+    // Remove any previously set text color classes
+    document.body.classList.remove("green-text", "red-text", "golden-text", "rainbow-text", "dark-text");
+
+    if (textColor === "green") {
+        document.body.classList.add("green-text");
+    } else if (textColor === "red") {
+        document.body.classList.add("red-text");
+    } else if (textColor === "golden") {
+        document.body.classList.add("golden-text");
+    } else if (textColor === "rainbow") {
+        document.body.classList.add("rainbow-text");
+    } else {
+        // If "default" is selected, check which theme is active:
+        if (document.body.classList.contains("dark-mode")) {
+            // In dark mode, default text should be white (or whatever your dark-text defines)
+            document.body.classList.add("dark-text");
+        }
+        // In light mode, no extra class is needed because the default text color is black.
+    }
 }
 </style>
 
