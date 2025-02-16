@@ -132,6 +132,71 @@ function changeTheme() {
 </script>
 
 <style>
+    .green-text {
+        color: #34C759;
+    }
+    .green-text .text-gray-700 {
+        color: #34C759;
+    }
+    .green-text .text-gray-800 {
+        color: #34C759;
+    }
+    .green-text .text-gray-900 {
+        color: #34C759;
+    }
+
+    .red-text {
+        color: #FF3737;
+    }
+    .red-text .text-gray-700 {
+        color: #FF3737;
+    }
+    .red-text .text-gray-800 {
+        color: #FF3737;
+    }
+    .red-text .text-gray-900 {
+        color: #FF3737;
+    }
+
+    .golden-text {
+        color: #FFD700;
+    }
+    .golden-text .text-gray-700 {
+        color: #FFD700;
+    }
+    .golden-text .text-gray-800 {
+        color: #FFD700;
+    }
+    .golden-text .text-gray-900 {
+        color: #FFD700;
+    }
+    .rainbow-text {
+        animation: rainbow 2s infinite;
+    }
+
+    @keyframes rainbow {
+        0% {
+            color: #FF3737;
+        }
+        20% {
+            color: #FFD700;
+        }
+        40% {
+            color: #34C759;
+        }
+        60% {
+            color: #4B0082;
+        }
+        80% {
+            color: #8F0A1A;
+        }
+        100% {
+            color: #FF3737;
+        }
+    }
+</style>
+
+<style>
     .light-mode {
         background-color: #fff;
         color: #000;
@@ -216,26 +281,31 @@ function changeTheme() {
     animation: rainbow 2s infinite;
 }
 
+.light-mode .rainbow-text {
+    animation: rainbow 2s infinite;
+}
+
 @keyframes rainbow {
     0% {
-        --text-color: #FF3737;
+        color: #FF3737;
     }
     20% {
-        --text-color: #FFD700;
+        color: #FFD700;
     }
     40% {
-        --text-color: #34C759;
+        color: #34C759;
     }
     60% {
-        --text-color: #4B0082;
+        color: #4B0082;
     }
     80% {
-        --text-color: #8F0A1A;
+        color: #8F0A1A;
     }
     100% {
-        --text-color: #FF3737;
+        color: #FF3737;
     }
 }
+
 </style>
 
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
