@@ -430,17 +430,30 @@ loginForm.addEventListener('submit', (e) => {
 </div>
 
 <script>
-    function toggleLocalStorage() {
-        const localStorageData = document.getElementById('local-storage-data');
-        const showLocalStorage = document.getElementById('show-local-storage');
-        if (localStorageData.classList.contains('hidden')) {
-            localStorageData.classList.remove('hidden');
-            showLocalStorage.classList.add('hidden');
-        } else {
-            localStorageData.classList.add('hidden');
-            showLocalStorage.classList.remove('hidden');
-        }
+function toggleLocalStorage() {
+    const localStorageData = document.getElementById('local-storage-data');
+    const showLocalStorage = document.getElementById('show-local-storage');
+    if (localStorageData.classList.contains('hidden')) {
+        localStorageData.classList.remove('hidden');
+        showLocalStorage.classList.add('hidden');
+        localStorage.setItem('localStorageVisibility', 'visible');
+    } else {
+        localStorageData.classList.add('hidden');
+        showLocalStorage.classList.remove('hidden');
+        localStorage.setItem('localStorageVisibility', 'hidden');
     }
+}
+
+window.onload = function() {
+    const localStorageVisibility = localStorage.getItem('localStorageVisibility');
+    if (localStorageVisibility === 'hidden') {
+        document.getElementById('local-storage-data').classList.add('hidden');
+        document.getElementById('show-local-storage').classList.remove('hidden');
+    } else {
+        document.getElementById('local-storage-data').classList.remove('hidden');
+        document.getElementById('show-local-storage').classList.add('hidden');
+    }
+}
 </script>
 
 <script>
