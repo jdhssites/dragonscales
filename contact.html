@@ -221,43 +221,79 @@
     .light-mode .shadow-md {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
-
-    .dark-mode {
-        background-color: #000;
-        color: #fff;
-    }
-    .dark-mode .bg-white {
-        background-color: #000;
-    }
-    .dark-mode .text-gray-700 {
-        color: #fff;
-    }
-    .dark-mode .text-gray-800 {
-        color: #fff;
-    }
-    .dark-mode .text-gray-900 {
-        color: #fff;
-    }
-    .dark-mode .bg-gray-100 {
-        background-color: #000;
-    }
-    .dark-mode .bg-gray-200 {
-        background-color: #333;
-    }
-    .dark-mode .bg-gray-800 {
-        background-color: #000;
-    }
-    .dark-mode .shadow-md {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    .dark-mode #theme {
-        color: #000;
-    }
-    .dark-mode #theme option {
-        color: #000;
-        background-color: #ffffff;
-    }
     
+.dark-mode {
+    background-color: #000;
+    color: var(--text-color);
+}
+.dark-mode .bg-white {
+    background-color: #000;
+}
+.dark-mode .text-white {
+    color: var(--text-color);
+}
+.dark-mode .text-gray-700 {
+    color: var(--text-color);
+}
+.dark-mode .text-gray-800 {
+    color: var(--text-color);
+}
+.dark-mode .text-gray-900 {
+    color: var(--text-color);
+}
+.dark-mode .bg-gray-100 {
+    background-color: #000;
+}
+.dark-mode .bg-gray-200 {
+    background-color: #000;
+}
+.dark-mode .bg-gray-800 {
+    background-color: #000;
+}
+.dark-mode .shadow-md {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+:root {
+    --text-color: #fff;
+}
+
+.green-text {
+    --text-color: #34C759;
+}
+
+.red-text {
+    --text-color: #FF3737;
+}
+
+.golden-text {
+    --text-color: #FFD700;
+}
+
+.rainbow-text {
+    animation: rainbow 2s infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        --text-color: #FF3737;
+    }
+    20% {
+        --text-color: #FFD700;
+    }
+    40% {
+        --text-color: #34C759;
+    }
+    60% {
+        --text-color: #4B0082;
+    }
+    80% {
+        --text-color: #8F0A1A;
+    }
+    100% {
+        --text-color: #FF3737;
+    }
+}
 </style>
 
 <div class="container mx-auto flex justify-between items-center px-4 py-8">

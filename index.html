@@ -301,31 +301,6 @@ function changeTheme() {
         --text-color: #FF3737;
     }
 }
-
-function changeTextColor() {
-    var textColor = document.getElementById("text-color").value;
-    localStorage.setItem('textColor', textColor);
-
-    // Remove any previously set text color classes
-    document.body.classList.remove("green-text", "red-text", "golden-text", "rainbow-text", "dark-text");
-
-    if (textColor === "green") {
-        document.body.classList.add("green-text");
-    } else if (textColor === "red") {
-        document.body.classList.add("red-text");
-    } else if (textColor === "golden") {
-        document.body.classList.add("golden-text");
-    } else if (textColor === "rainbow") {
-        document.body.classList.add("rainbow-text");
-    } else {
-        // If "default" is selected, check which theme is active:
-        if (document.body.classList.contains("dark-mode")) {
-            // In dark mode, default text should be white (or whatever your dark-text defines)
-            document.body.classList.add("dark-text");
-        }
-        // In light mode, no extra class is needed because the default text color is black.
-    }
-}
 </style>
 
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
