@@ -57,11 +57,11 @@
 <div class="fixed bottom-0 right-0 p-4 flex space-x-4 z-50"> 
     <b>Text:</b>
     <select id="text-color" onchange="changeTextColor()">
-        <option value="default">White Text</option>
-        <option value="green">Green Text</option>
-        <option value="red">Red Text</option>
-        <option value="golden">Golden Text</option>
-        <option value="rainbow">Rainbow Text</option>
+<option value="default" style="color: black;">Default</option>
+<option value="green" style="color: black;">Green Text</option>
+<option value="red" style="color: black;">Red Text</option>
+<option value="golden" style="color: black;">Golden Text</option>
+<option value="rainbow" style="color: black;">Rainbow Text</option>
     </select>
 
     <b>Theme:</b>
@@ -90,38 +90,45 @@
     loadUserPreferences();
 
     function changeTextColor() {
-        var textColor = document.getElementById("text-color").value;
-        localStorage.setItem('textColor', textColor);
-        if (textColor == "green") {
-            document.body.classList.remove("red-text", "golden-text", "rainbow-text");
-            document.body.classList.add("green-text");
-        } else if (textColor == "red") {
-            document.body.classList.remove("green-text", "golden-text", "rainbow-text");
-            document.body.classList.add("red-text");
-        } else if (textColor == "golden") {
-            document.body.classList.remove("green-text", "red-text", "rainbow-text");
-            document.body.classList.add("golden-text");
-        } else if (textColor == "rainbow") {
-            document.body.classList.remove("green-text", "red-text", "golden-text");
-            document.body.classList.add("rainbow-text");
-        } else {
-            document.body.classList.remove("green-text", "red-text", "golden-text", "rainbow-text");
-        }
-    }
+    var textColor = document.getElementById("text-color").value;
+    localStorage.setItem('textColor', textColor);
 
-    function changeTheme() {
-        var theme = document.getElementById("theme").value;
-        localStorage.setItem('theme', theme);
-        if (theme == "light") {
-            document.body.classList.remove("dark-mode");
-            document.body.classList.add("light-mode");
-        } else if (theme == "dark") {
-            document.body.classList.remove("light-mode");
-            document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("light-mode", "dark-mode");
+    // Remove any previously set text color classes
+    document.body.classList.remove("green-text", "red-text", "golden-text", "rainbow-text", "dark-text");
+
+    if (textColor === "green") {
+        document.body.classList.add("green-text");
+    } else if (textColor === "red") {
+        document.body.classList.add("red-text");
+    } else if (textColor === "golden") {
+        document.body.classList.add("golden-text");
+    } else if (textColor === "rainbow") {
+        document.body.classList.add("rainbow-text");
+    } else {
+        // If "default" is selected, check which theme is active:
+        if (document.body.classList.contains("dark-mode")) {
+            // In dark mode, default text should be white (or whatever your dark-text defines)
+            document.body.classList.add("dark-text");
         }
+        // In light mode, no extra class is needed because the default text color is black.
     }
+}
+
+function changeTheme() {
+    var theme = document.getElementById("theme").value;
+    localStorage.setItem('theme', theme);
+
+    // Remove theme classes first
+    document.body.classList.remove("light-mode", "dark-mode");
+
+    if (theme === "light") {
+        document.body.classList.add("light-mode");
+    } else if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+    // Now reapply text color settings
+    changeTextColor();
+}
 </script>
 
 <style>
@@ -222,44 +229,40 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
-    .dark-mode {
-        background-color: #000;
-        color: #fff;
-    }
-    .dark-mode .bg-white {
-        background-color: #000;
-    }
-    .dark-mode .text-gray-700 {
-        color: #fff;
-    }
-    .dark-mode .text-gray-800 {
-        color: #fff;
-    }
-    .dark-mode .text-gray-900 {
-        color: #fff;
-    }
-    .dark-mode .bg-gray-100 {
-        background-color: #000;
-    }
-    .dark-mode .bg-gray-200 {
-        background-color: #333;
-    }
-    .dark-mode .bg-gray-800 {
-        background-color: #000;
-    }
-    .dark-mode .shadow-md {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-    .dark-mode #theme {
-        color: #000;
-    }
-    .dark-mode #theme option {
-        color: #000;
-        background-color: #ffffff;
-    }
-
-    
-    
+ .dark-mode {
+    background-color: #000;
+}
+.dark-mode .bg-white {
+    background-color: #000;
+}
+.dark-mode .text-gray-700 {
+    color: #fff;
+}
+.dark-mode .text-gray-800 {
+    color: #fff;
+}
+.dark-mode .text-gray-900 {
+    color: #fff;
+}
+.dark-mode .bg-gray-100 {
+    background-color: #000;
+}
+.dark-mode .bg-gray-200 {
+    background-color: #333;
+}
+.dark-mode .bg-gray-800 {
+    background-color: #000;
+}
+.dark-mode .shadow-md {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.dark-mode #theme {
+    color: #fff;
+}
+.dark-mode #theme option {
+    color: #fff;
+    background-color: #000;
+}
 </style>
 
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
