@@ -342,25 +342,23 @@ function changeTheme() {
     </nav>
 
     <script>
-const navLinks = document.querySelectorAll('nav ul li a');
-
-navLinks.forEach(link => {
-    link.addEventListener('mouseover', () => {
-        link.style.transition = 'all 0.3s ease-in-out';
-        link.style.transform = 'scale(1.5) rotateX(30deg) rotateY(30deg)';
-        link.style.textShadow = '0 0 20px rgba(255, 0, 0, 0.8)';
-        link.style.fontSize = '1.2em';
-        link.style.color = 'red'; // TESTING (MERGE WITH OTHER PAGES)
-    });
-
-    link.addEventListener('mouseout', () => {
-        link.style.transform = 'scale(1)';
-        link.style.textShadow = 'none';
-        link.style.fontSize = '1em';
-        link.style.color = 'black'; // TESTING (MERGE WITH OTHER PAGES)
-    });
-});
-</script>
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.transition = 'all 0.3s ease-in-out';
+                link.style.transform = 'scale(1.5) rotateX(30deg) rotateY(30deg)';
+                link.style.textShadow = '0 0 20px rgba(255, 0, 0, 0.8)';
+                link.style.fontSize = '1.2em';
+            });
+        
+            link.addEventListener('mouseout', () => {
+                link.style.transform = 'scale(1)';
+                link.style.textShadow = 'none';
+                link.style.fontSize = '1em';
+            });
+        });
+        </script>
 
     <!-- Scroll to Top Button -->
 <div class="fixed bottom-7 left-0 p-4 flex space-x-4 z-50" id="scroll-to-top" style="display: none;">
@@ -829,6 +827,7 @@ navLinks.forEach(link => {
                         <li class="text-gray-700"><a href="portfolios/zhaoyingzhen.html">Zhao Ying Zhen /Witness</a></li>
                         <li class="text-gray-700"><a href="portfolios/erichuang.html">Eric Huang /Witness</a></li>
                         <li class="text-gray-700"><a href="portfolios/leongladyshev.html">Leon Gladyshev /Lawyer</a></li>
+                        <li class="text-gray-700"><a href="portfolios/asilbekravshanov.html">Asilbek Ravshanov /Lawyer</a></li>
                     </ul>
                 </div>
             </div>
