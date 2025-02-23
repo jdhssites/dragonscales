@@ -324,6 +324,25 @@ function changeTheme() {
         </ul>
     </nav>
 
+    <script>
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.transition = 'all 0.3s ease-in-out';
+                link.style.transform = 'scale(1.5) rotateX(30deg) rotateY(30deg)';
+                link.style.textShadow = '0 0 20px rgba(255, 0, 0, 0.8)';
+                link.style.fontSize = '1.2em';
+            });
+        
+            link.addEventListener('mouseout', () => {
+                link.style.transform = 'scale(1)';
+                link.style.textShadow = 'none';
+                link.style.fontSize = '1em';
+            });
+        });
+        </script>
+
     <!-- Burger Menu Icon (Only Visible on Mobile) -->
     <button id="menu-btn" class="md:hidden absolute top-4 right-4 text-gray-700 focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
