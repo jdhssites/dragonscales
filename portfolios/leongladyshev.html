@@ -432,7 +432,6 @@ function changeTheme() {
 <!--Where the Page ACTUALLY Starts-->
 
 <!--Testing-->
-
 <div class="fixed top-0 left-0 w-full h-full" id="dragon">
     <canvas id="dragon-canvas"></canvas>
 </div>
@@ -444,18 +443,25 @@ function changeTheme() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    let dragon = {
+    let snake = {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        width: 200,
-        height: 200,
+        width: 20,
+        height: 20,
         speedX: Math.random() * 5 + 1,
         speedY: Math.random() * 5 + 1,
         color: 'red',
         bodyColor: 'orange',
-        wingColor: 'brown',
-        eyeColor: 'black'
+        eyeColor: 'black',
+        tail: []
     };
+
+    for (let i = 0; i < 50; i++) {
+        snake.tail.push({
+            x: snake.x + (i * snake.width),
+            y: snake.y
+        });
+    }
 
     let rain = [];
     for (let i = 0; i < 100; i++) {
@@ -467,26 +473,20 @@ function changeTheme() {
         });
     }
 
-    function drawDragon() {
+    function drawSnake() {
         ctx.beginPath();
-        ctx.fillStyle = dragon.bodyColor;
-        ctx.fillRect(dragon.x, dragon.y, dragon.width, dragon.height);
+        ctx.fillStyle = snake.bodyColor;
+        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
 
         ctx.beginPath();
-        ctx.fillStyle = dragon.wingColor;
-        ctx.fillRect(dragon.x - 50, dragon.y + 50, 100, 50);
+        ctx.fillStyle = snake.eyeColor;
+        ctx.fillRect(snake.x + 5, snake.y + 5, 5, 5);
 
-        ctx.beginPath();
-        ctx.fillStyle = dragon.wingColor;
-        ctx.fillRect(dragon.x + dragon.width, dragon.y + 50, 100, 50);
-
-        ctx.beginPath();
-        ctx.fillStyle = dragon.eyeColor;
-        ctx.fillRect(dragon.x + 50, dragon.y + 50, 20, 20);
-
-        ctx.beginPath();
-        ctx.fillStyle = dragon.eyeColor;
-        ctx.fillRect(dragon.x + dragon.width - 70, dragon.y + 50, 20, 20);
+        for (let i = 0; i < snake.tail.length; i++) {
+            ctx.beginPath();
+            ctx.fillStyle = snake.bodyColor;
+            ctx.fillRect(snake.tail[i].x, snake.tail[i].y, snake.width, snake.height);
+        }
     }
 
     function drawRain() {
@@ -500,17 +500,25 @@ function changeTheme() {
         }
     }
 
-    function updateDragon() {
-        dragon.x += dragon.speedX;
-        dragon.y += dragon.speedY;
+    function updateSnake() {
+        snake.x += snake.speedX;
+        snake.y += snake.speedY;
 
-        if (dragon.x + dragon.width > canvas.width || dragon.x < 0) {
-            dragon.speedX = -dragon.speedX;
+        if (snake.x + snake.width > canvas.width || snake.x < 0) {
+            snake.speedX = -snake.speedX;
         }
 
-        if (dragon.y + dragon.height > canvas.height || dragon.y < 0) {
-            dragon.speedY = -dragon.speedY;
+        if (snake.y + snake.height > canvas.height || snake.y < 0) {
+            snake.speedY = -snake.speedY;
         }
+
+        for (let i = snake.tail.length - 1; i > 0; i--) {
+            snake.tail[i].x = snake.tail[i - 1].x;
+            snake.tail[i].y = snake.tail[i - 1].y;
+        }
+
+        snake.tail[0].x = snake.x;
+        snake.tail[0].y = snake.y;
     }
 
     function updateRain() {
@@ -526,9 +534,9 @@ function changeTheme() {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawDragon();
+        drawSnake();
         drawRain();
-        updateDragon();
+        updateSnake();
         updateRain();
         requestAnimationFrame(animate);
     }
