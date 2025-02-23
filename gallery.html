@@ -7,6 +7,70 @@
     <title>Mock Trial</title>
 </head>
 
+
+<!--TESTING-->
+
+<!--Snowflake Animation-->
+<body>
+    <style>
+.snowflake {
+    position: absolute;
+    font-size: 1rem;
+    pointer-events: none;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+</style>
+
+<script>
+    const snowflakes = 200;
+    const snowflakeSize = 10;
+    const snowflakeSpeed = 0.5;
+    const snowflakeColor = 'white';
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.style.fontSize = `${snowflakeSize}px`;
+        snowflake.style.color = snowflakeColor;
+        snowflake.style.position = 'absolute';
+        snowflake.style.top = `${Math.random() * window.innerHeight}px`;
+        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+        snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
+        snowflake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
+        snowflake.textContent = '*';
+        document.body.appendChild(snowflake);
+    }
+
+    function animateSnowflakes() {
+        const snowflakes = document.querySelectorAll('.snowflake');
+        snowflakes.forEach((snowflake, index) => {
+            snowflake.style.top = `${Math.random() * window.innerHeight}px`;
+            snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+            snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
+            snowflake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
+        });
+    }
+
+    for (let i = 0; i < snowflakes; i++) {
+        createSnowflake();
+    }
+
+    setInterval(animateSnowflakes, 1000);
+</script>
+</body>
+<!-------------------------------------------------------------------------------->
+
+
 <style>
     @media only screen and (max-width: 768px) {
     html, body {
