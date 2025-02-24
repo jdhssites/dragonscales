@@ -64,19 +64,19 @@
 <!--Text Colors-->
 <div class="fixed bottom-0 right-0 p-4 flex space-x-4 z-50"> 
     <b>Text:</b>
-    <select id="text-color" onchange="changeTextColor()">
-<option value="default" style="color: black;">Default</option>
-<option value="green" style="color: black;">Green Text</option>
-<option value="red" style="color: black;">Red Text</option>
-<option value="golden" style="color: black;">Golden Text</option>
-<option value="rainbow" style="color: black;">Rainbow Text</option>
-    </select>
+<select id="text-color" onchange="changeTextColor()">
+    <option value="default" style="color: black; background-color: white;">Default</option>
+    <option value="green" style="color: black; background-color: white;">Green Text</option>
+    <option value="red" style="color: black; background-color: white;">Red Text</option>
+    <option value="golden" style="color: black; background-color: white;">Golden Text</option>
+    <option value="rainbow" style="color: black; background-color: white;">Rainbow Text</option>
+</select>
 
     <!--Theme Colors-->
     <b>Theme:</b>
     <select id="theme" onchange="changeTheme()">
-        <option value="default">Light Theme</option>
-        <option value="dark">Dark Theme</option>
+        <option value="default" style="color: black; background-color: white;">Light Theme</option>
+        <option value="dark" style="color: black; background-color: white;">Dark Theme</option>
     </select>
 </div>
 
@@ -276,7 +276,7 @@ function changeTheme() {
 }
 
 :root {
-    --text-color: #fff;
+    --text-color: #ffffff;
 }
 
 .green-text {
@@ -321,7 +321,6 @@ function changeTheme() {
 }
 
 </style>
-
 
 <!--Dragon Scales Logo (THIS IS THE TITLE ALL THE WAY AT THE TOP)-->
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
