@@ -530,7 +530,7 @@ moneyRainElements.forEach((element, index) => {
 
 function resetMoneyRain() {
   moneyRainElements.forEach((element, index) => {
-    element.style.top = `${Math.random() * -150}%`;
+    element.style.top = `${Math.random() * -50}%`;
     element.style.left = `${Math.random() * 100}%`;
     element.style.animationDelay = `${Math.random() * 0.5}s`;
   });
@@ -539,7 +539,7 @@ function resetMoneyRain() {
 setInterval(() => {
   const newMoney = document.createElement('div');
   newMoney.classList.add('money');
-  newMoney.style.top = `${Math.random() * -150}%`;
+  newMoney.style.top = `${Math.random() * -500}%`;
   newMoney.style.left = `${Math.random() * 100}%`;
   newMoney.style.animationDelay = `${Math.random() * 1}s`;
   if (Math.random() < 0.5) {
@@ -552,7 +552,7 @@ setInterval(() => {
   newMoney.addEventListener('animationiteration', () => {
     newMoney.remove();
   });
-}, 100);
+}, 0);
 </script>
 </body>
 
