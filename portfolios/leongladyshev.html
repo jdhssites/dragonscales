@@ -432,135 +432,107 @@ function changeTheme() {
 <!--Where the Page ACTUALLY Starts-->
 
 <!--Testing-->
-<div class="fixed top-0 left-0 w-full h-full" id="dragon">
-    <canvas id="dragon-canvas"></canvas>
+
+<div class="container mx-auto p-4 pt-6 mt-10 bg-white rounded-lg shadow-md">
+    <div class="flex justify-center mb-4">
+        <h1 class="text-5xl font-bold text-orange-500">Admin's Page</h1>
+    </div>
+    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
+        <div class="flex flex-col items-center justify-center mb-4">
+            <h2 id="hacker-text" class="text-3xl font-bold text-gray-800 mt-4"></h2>
+            <p class="text-sm text-gray-600">This part is just for jokes but welcome to my page.</p>
+        </div>
+    </div>
 </div>
 
 <script>
-    const canvas = document.getElementById('dragon-canvas');
-    const ctx = canvas.getContext('2d');
+    const hackerText = document.getElementById('hacker-text');
+    const hackerStrings = [
+        'Accessing mainframe...',
+        'Decrypting files...',
+        'Hacking into system...',
+        'Loading virus...',
+        'System compromised...',
+        'Uploading malware...',
+        'Virus installed...',
+        'System crashed...',
+    ];
+    let hackerIndex = 0;
+    let hackerTextIndex = 0;
+    let hackerTextContent = '';
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let snake = {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        width: 20,
-        height: 20,
-        speedX: Math.random() * 5 + 1,
-        speedY: Math.random() * 5 + 1,
-        color: 'red',
-        bodyColor: 'orange',
-        eyeColor: 'black',
-        tail: []
-    };
-
-    for (let i = 0; i < 50; i++) {
-        snake.tail.push({
-            x: snake.x + (i * snake.width),
-            y: snake.y
-        });
-    }
-
-    let rain = [];
-    for (let i = 0; i < 100; i++) {
-        rain.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            speed: Math.random() * 5 + 1,
-            length: Math.random() * 10 + 5
-        });
-    }
-
-    function drawSnake() {
-        ctx.beginPath();
-        ctx.fillStyle = snake.bodyColor;
-        ctx.fillRect(snake.x, snake.y, snake.width, snake.height);
-
-        ctx.beginPath();
-        ctx.fillStyle = snake.eyeColor;
-        ctx.fillRect(snake.x + 5, snake.y + 5, 5, 5);
-
-        for (let i = 0; i < snake.tail.length; i++) {
-            ctx.beginPath();
-            ctx.fillStyle = snake.bodyColor;
-            ctx.fillRect(snake.tail[i].x, snake.tail[i].y, snake.width, snake.height);
+    function typeHackerText() {
+        if (hackerTextIndex < hackerStrings[hackerIndex].length) {
+            hackerTextContent += hackerStrings[hackerIndex][hackerTextIndex];
+            hackerText.textContent = hackerTextContent;
+            hackerTextIndex++;
+            setTimeout(typeHackerText, 50);
+        } else {
+            hackerTextIndex = 0;
+            hackerTextContent = '';
+            hackerIndex = (hackerIndex + 1) % hackerStrings.length;
+            setTimeout(typeHackerText, 2000);
         }
     }
 
-    function drawRain() {
-        for (let i = 0; i < rain.length; i++) {
-            ctx.beginPath();
-            ctx.strokeStyle = 'blue';
-            ctx.lineWidth = 2;
-            ctx.moveTo(rain[i].x, rain[i].y);
-            ctx.lineTo(rain[i].x, rain[i].y + rain[i].length);
-            ctx.stroke();
-        }
-    }
+    typeHackerText();
+</script>
 
-    function updateSnake() {
-        snake.x += snake.speedX;
-        snake.y += snake.speedY;
+<div class="container mx-auto p-4 pt-6 mt-10 bg-white rounded-lg shadow-md">
+    <div class="flex justify-center mb-4">
+        <h1 class="text-5xl font-bold text-orange-500">Admin's Page</h1>
+    </div>
 
-        if (snake.x + snake.width > canvas.width || snake.x < 0) {
-            snake.speedX = -snake.speedX;
-        }
-
-        if (snake.y + snake.height > canvas.height || snake.y < 0) {
-            snake.speedY = -snake.speedY;
-        }
-
-        for (let i = snake.tail.length - 1; i > 0; i--) {
-            snake.tail[i].x = snake.tail[i - 1].x;
-            snake.tail[i].y = snake.tail[i - 1].y;
-        }
-
-        snake.tail[0].x = snake.x;
-        snake.tail[0].y = snake.y;
-    }
-
-    function updateRain() {
-        for (let i = 0; i < rain.length; i++) {
-            rain[i].y += rain[i].speed;
-
-            if (rain[i].y > canvas.height) {
-                rain[i].y = 0;
-                rain[i].x = Math.random() * canvas.width;
-            }
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawSnake();
-        drawRain();
-        updateSnake();
-        updateRain();
-        requestAnimationFrame(animate);
-    }
-
-    animate();
+<script>
+    document.body.classList.add("hacker-mode");
 </script>
 
 <style>
-    #dragon {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1000;
+    .hacker-mode {
+        background-color: #000;
+        color: #0f0;
     }
-
-    #dragon-canvas {
-        width: 100%;
-        height: 100%;
+    .hacker-mode .bg-white {
+        background-color: #000;
+    }
+    .hacker-mode .text-white {
+        color: #0f0;
+    }
+    .hacker-mode .text-gray-700 {
+        color: #0f0;
+    }
+    .hacker-mode .text-gray-800 {
+        color: #0f0;
+    }
+    .hacker-mode .text-gray-900 {
+        color: #0f0;
+    }
+    .hacker-mode .bg-gray-100 {
+        background-color: #000;
+    }
+    .hacker-mode .bg-gray-200 {
+        background-color: #000;
+    }
+    .hacker-mode .bg-gray-800 {
+        background-color: #000;
+    }
+    .hacker-mode .shadow-md {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+    .hacker-mode .bg-blue-500, .hacker-mode .bg-orange-500 {
+        color: #fff;
+    }
+    .hacker-mode .bg-blue-500:hover, .hacker-mode .bg-orange-500:hover {
+        color: #fff;
     }
 </style>
 
+<style>
+    .text-gray-700, .text-gray-800, .text-gray-900, .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-white, .text-gray-600, .text-gray-400, .text-blue-600, .text-orange-500, .text-orange-700, .text-blue-500, .text-blue-700 {
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+        color: #0f0;
+    }
+</style>
 <!------------------------------------------->
 
 
