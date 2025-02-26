@@ -879,25 +879,112 @@ function changeTheme() {
     }
 </style>
 
-<!--Mock Mode Popup-->
-<div id="popup-container" class="fixed bottom-0 left-0 p-4 flex space-x-4 z-50 bg-gray-800 text-white rounded shadow-md animate-fade-in">
-    <p class="text-sm">Welcome to the official John Dewey Mock Trial Team Website! Would you like to enable Mock Mode?</p>
-    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded md:py-1 md:px-2" onclick="enableMockMode(); document.getElementById('popup-container').classList.add('hidden')">Yes</button>
-    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded md:py-1 md:px-2" onclick="document.getElementById('popup-container').classList.add('hidden')">No</button>
-</div>
+
+
+<!--MOCK MODE-->
 
 <script>
+    function loadUserPreferences() {
+        const textColor = localStorage.getItem('textColor');
+        const theme = localStorage.getItem('theme');
+        const mockMode = localStorage.getItem('mockMode');
+
+        if (textColor) {
+            document.getElementById('text-color').value = textColor;
+            changeTextColor();
+        }
+
+        if (theme) {
+            document.getElementById('theme').value = theme;
+            changeTheme();
+        }
+
+        if (mockMode === 'enabled') {
+            enableMockMode();
+        } else if (mockMode === 'disabled') {
+            document.getElementById('popup-container').classList.add('hidden');
+        }
+    }
+
+    function changeTextColor() {
+        var textColor = document.getElementById("text-color").value;
+        localStorage.setItem('textColor', textColor);
+
+        // Remove any previously set text color classes
+        document.body.classList.remove("green-text", "red-text", "golden-text", "rainbow-text", "dark-text");
+
+        if (textColor === "green") {
+            document.body.classList.add("green-text");
+        } else if (textColor === "red") {
+            document.body.classList.add("red-text");
+        } else if (textColor === "golden") {
+            document.body.classList.add("golden-text");
+        } else if (textColor === "rainbow") {
+            document.body.classList.add("rainbow-text");
+        } else {
+            // If "default" is selected, check which theme is active:
+            if (document.body.classList.contains("dark-mode")) {
+                // In dark mode, default text should be white (or whatever your dark-text defines)
+                document.body.classList.add("dark-text");
+            }
+            // In light mode, no extra class is needed because the default text color is black.
+        }
+    }
+
+    function changeTheme() {
+        var theme = document.getElementById("theme").value;
+        localStorage.setItem('theme', theme);
+
+        // Remove theme classes first
+        document.body.classList.remove("light-mode", "dark-mode");
+
+        if (theme === "light") {
+            document.body.classList.add("light-mode");
+        } else if (theme === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+        // Now reapply text color settings
+        changeTextColor();
+    }
+
     function enableMockMode() {
         document.body.classList.add("rainbow-text");
         document.body.classList.add("dark-mode");
+        localStorage.setItem('mockMode', 'enabled');
     }
+
+    function disableMockMode() {
+        localStorage.setItem('mockMode', 'disabled');
+    }
+
+    window.onload = function() {
+        const mockMode = localStorage.getItem('mockMode');
+        if (mockMode !== 'disabled') {
+            document.getElementById('popup-container').classList.remove('hidden');
+        }
+    }
+
+    loadUserPreferences();
 </script>
 
-<script>
-    window.onload = function() {
-        document.getElementById('popup-container').classList.remove('hidden');
-    }
-</script>
+<!--Mock Mode Popup-->
+<div id="popup-container" class="fixed bottom-0 left-0 p-4 flex space-x-4 z-50 bg-gray-800 text-white rounded shadow-md animate-fade-in hidden">
+    <p class="text-sm">Welcome to the official John Dewey Mock Trial Team Website! Would you like to enable Mock Mode?</p>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded md:py-1 md:px-2" onclick="enableMockMode(); document.getElementById('popup-container').classList.add('hidden')">Yes</button>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded md:py-1 md:px-2" onclick="disableMockMode(); document.getElementById('popup-container').classList.add('hidden')">No</button>
+</div>
+
+
+
+
+
+<!----------------------------------------------------------->
+
+
+
+
+
+
 
 <section class="bg-gray-100 py-12">
     <div class="container mx-auto px-4">
