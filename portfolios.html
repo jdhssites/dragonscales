@@ -7,6 +7,8 @@
     <title>Mock Trial</title>
 </head>
 
+
+
 <!--DONT TOUCH THIS SECTION!-->
 <!--This is what makes the website look nice, and fit on iphone-->
 <style>
@@ -62,19 +64,19 @@
 <!--Text Colors-->
 <div class="fixed bottom-0 right-0 p-4 flex space-x-4 z-50"> 
     <b>Text:</b>
-    <select id="text-color" onchange="changeTextColor()">
-<option value="default" style="color: black;">Default</option>
-<option value="green" style="color: black;">Green Text</option>
-<option value="red" style="color: black;">Red Text</option>
-<option value="golden" style="color: black;">Golden Text</option>
-<option value="rainbow" style="color: black;">Rainbow Text</option>
-    </select>
+<select id="text-color" onchange="changeTextColor()">
+    <option value="default" style="color: black; background-color: white;">Default</option>
+    <option value="green" style="color: black; background-color: white;">Green Text</option>
+    <option value="red" style="color: black; background-color: white;">Red Text</option>
+    <option value="golden" style="color: black; background-color: white;">Golden Text</option>
+    <option value="rainbow" style="color: black; background-color: white;">Rainbow Text</option>
+</select>
 
     <!--Theme Colors-->
     <b>Theme:</b>
     <select id="theme" onchange="changeTheme()">
-        <option value="default">Light Theme</option>
-        <option value="dark">Dark Theme</option>
+        <option value="default" style="color: black; background-color: white;">Light Theme</option>
+        <option value="dark" style="color: black; background-color: white;">Dark Theme</option>
     </select>
 </div>
 
@@ -240,7 +242,7 @@ function changeTheme() {
     .light-mode .shadow-md {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
-    
+
 .dark-mode {
     background-color: #000;
     color: var(--text-color);
@@ -274,7 +276,7 @@ function changeTheme() {
 }
 
 :root {
-    --text-color: #fff;
+    --text-color: #ffffff;
 }
 
 .green-text {
@@ -332,7 +334,7 @@ function changeTheme() {
         <ul class="flex space-x-6 text-gray-700">
             <li><a href="index.html" class="hover:text-gray-900">Home</a></li>
             <li><a href="about.html" class="hover:text-gray-900">About</a></li>
-            <li><a href="features.html" class="hover:text-gray-900">Features</a></li>
+            <li><a href="portfolios.html" class="hover:text-gray-900">Portfolios</a></li>
             <li><a href="news.html" class="hover:text-gray-900">News</a></li>
             <li><a href="staff.html" class="hover:text-gray-900">Staff</a></li>
             <li><a href="gallery.html" class="hover:text-gray-900">Gallery</a></li>
@@ -401,7 +403,7 @@ function changeTheme() {
     <ul class="mt-12 space-y-6 text-gray-700 text-lg px-6">
         <li><a href="index.html" class="block hover:text-gray-900">Home</a></li>
         <li><a href="about.html" class="block hover:text-gray-900">About</a></li>
-        <li><a href="features.html" class="block hover:text-gray-900">Features</a></li>
+        <li><a href="portfolios.html" class="block hover:text-gray-900">Portfolios</a></li>
         <li><a href="news.html" class="block hover:text-gray-900">News</a></li>
         <li><a href="staff.html" class="block hover:text-gray-900">Staff</a></li>
         <li><a href="gallery.html" class="block hover:text-gray-900">Gallery</a></li>
@@ -430,183 +432,238 @@ function changeTheme() {
     }
 </style>
 
-<!--Where the Page ACTUALLY Starts-->
-
-<div class="container mx-auto p-4 pt-6 mt-10 bg-white rounded-lg shadow-md">
-    <div class="flex justify-center mb-4">
-        <h1 class="text-4xl font-bold text-gray-800">Portfolio</h1>
-    </div>
-    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-        <div class="flex flex-col items-center justify-center mb-4">
-            <img class="w-64 h-64 rounded-full object-cover" src="law.png" alt="Profile Picture">
-            <h2 class="text-3xl font-bold text-gray-800 mt-4">User</h2>
-            <p class="text-xl text-gray-600">Role on the team</p>
-        </div>
-    </div>
-    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-        <h3 class="text-2xl font-bold text-gray-800">About Me</h3>
-        <p class="text-lg text-gray-600">Just personal background. And introduction as to who you are.</p>
-    </div>
-    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-        <h3 class="text-2xl font-bold text-gray-800">Skills</h3>
-        <ul class="list-none mb-4">
-            <li class="text-lg text-gray-600">What do you want to be recognized for?</li>
-            <li class="text-lg text-gray-600">Skill 1</li>
-            <li class="text-lg text-gray-600">Skill 2</li>
-            <li class="text-lg text-gray-600">Skil 3</li>
-            <li class="text-lg text-gray-600">Skill 4</li>
-        </ul>
-    </div>
-    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-        <h3 class="text-2xl font-bold text-gray-800">Experience</h3>
-        <div class="flex flex-col items-center justify-center mb-4">
-            <h4 class="text-lg font-bold text-gray-800">Experience 1</h4>
-            <p class="text-lg text-gray-600">Foundation as to this experience.</p>
-        </div>
-        <div class="flex flex-col items-center justify-center mb-4">
-            <h4 class="text-lg font-bold text-gray-800">Experience 2</h4>
-            <p class="text-lg text-gray-600">Foundation as to this experience.</p>
-        </div>
-    </div>
-    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-        <h3 class="text-2xl font-bold text-gray-800">Education</h3>
-        <div class="flex flex-col items-center justify-center mb-4">
-            <h4 class="text-lg font-bold text-gray-800">John Dewey High School</h4>
-            <p class="text-lg text-gray-600">What are some of your High Points and Achievements made in John Dewey? (Ex. AP Classes, Clubs, Higher Statuses, etc)</p>
-        </div>
-    </div>
-    <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-        <h3 class="text-2xl font-bold text-gray-800">Contact Me</h3>
-        <p class="text-lg text-gray-600">Email: <a class="text-blue-600" href="mailto:test@example.com">personal or school email</a></p>
-    </div>
-</div>
-
-
-
-
-<div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
-    <h3 class="text-2xl font-bold text-gray-800">Request Site Edits</h3>
-    <form action="https://formspree.io/f/meoewkbb" method="POST">
-        <div class="flex flex-col items-center justify-center mb-4">
-            <label class="text-lg text-gray-600" for="name">Name:</label>
-            <input class="w-full p-2 mb-4 border border-gray-400 rounded-lg" type="text" id="name" name="name">
-        </div>
-        <div class="flex flex-col items-center justify-center mb-4">
-            <label class="text-lg text-gray-600" for="email">Email:</label>
-            <input class="w-full p-2 mb-4 border border-gray-400 rounded-lg" type="email" id="email" name="email">
-        </div>
-        <div class="flex flex-col items-center justify-center mb-4">
-            <label class="text-lg text-gray-600" for="message">Request:</label>
-            <textarea class="w-full p-2 mb-4 border border-gray-400 rounded-lg" id="message" name="message"></textarea>
-        </div>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">Send Request</button>
-    </form>
-</div>
-
-
-<!--Where the page ACTUALLY starts-->
 <!--TESTING-->
 
-<!--Snowflake Animation-->
-<body>
-    <style>
-.snowflake {
-    position: absolute;
-    font-size: 1rem;
-    pointer-events: none;
-    z-index: 1000;
-    font-family: Arial, sans-serif;
-    animation: fall 5s linear infinite;
-}
 
-@keyframes fall {
-    0% {
-        transform: translateY(0);
+
+<!--Snowflake Animation-->
+<canvas id="snow" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000; display: none;"></canvas>
+<script>
+  const canvas = document.getElementById('snow');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let snowflakes = [];
+
+  function Snowflake() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 5 + 2;
+    this.speed = Math.random() * 2 + 1;
+  }
+
+  Snowflake.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.fill();
+  };
+
+  Snowflake.prototype.update = function() {
+    this.y += this.speed;
+    if (this.y > canvas.height) {
+      this.y = -this.size;
+      this.x = Math.random() * canvas.width;
     }
-    100% {
-        transform: translateY(100vh);
+  };
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < snowflakes.length; i++) {
+      snowflakes[i].draw();
+      snowflakes[i].update();
     }
-}
-</style>
+    requestAnimationFrame(animate);
+  }
+
+  for (let i = 0; i < 100; i++) {
+    snowflakes.push(new Snowflake());
+  }
+
+  animate();
+</script>
+<!------------------------------------------------------------------------------------>
+
+
+
+
+
+<!--Where the Page ACTUALLY Starts-->
+
+<div class="container mx-auto p-4 border border-gray-300 rounded shadow-md" style="background-color: #f7f7f7;">
+
+<div class="container mx-auto p-4">
+    <div class="bg-white shadow-md rounded p-4">
+        <h1 class="text-4xl font-bold mb-4">Portfolios List</h1>
+        <p>Welcome to the Portfolios List page, where you can view the personally customized portfolios of all team members.</p>
+    </div>
+</div>
+
+<!--Containers-->
+<div class="container mx-auto p-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/leongladyshev.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Leon Gladyshev</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/melvinmacoto.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Melvin Macoto</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/sameersaleemi.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Sameer Saleemi</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/lizimakashvili.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Lizi Makashvili</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/helenacalixte.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Helena Calixte</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/erichuang.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Eric Huang</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/asilbekravshanov.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Asilbek Ravshanov</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/amirfaridunahmetjanov.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Amir Faridun Ahmetjanov</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/lilachen.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Lila Chen</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/mindyzou.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Mindy Zou</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/zhaoyingzhen.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Zhao Ying Zhen</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+<div class="container mx-auto p-4 mt-4">
+    <div class="bg-white shadow-md rounded p-4 cursor-pointer" onclick="window.location.href='portfolios/luizahamrakulova.html'" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <h2 class="text-2xl font-bold mb-4">Luiza Hamrakulova</h2>
+        <p>Put whatever bio you'd like here.</p>
+    </div>
+</div>
+
+    </div> 
+
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+
+
+<!--Mock Mode Popup-->
+<div id="popup-container" class="fixed bottom-0 left-0 p-4 flex space-x-4 z-50 bg-gray-800 text-white rounded shadow-md animate-fade-in">
+    <p class="text-sm">Welcome to the official John Dewey Mock Trial Team Website! Would you like to enable Mock Mode?</p>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded md:py-1 md:px-2" onclick="enableMockMode(); document.getElementById('popup-container').classList.add('hidden')">Yes</button>
+    <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded md:py-1 md:px-2" onclick="document.getElementById('popup-container').classList.add('hidden')">No</button>
+</div>
 
 <script>
-    const snowflakes = 200;
-    const snowflakeSize = 10;
-    const snowflakeSpeed = 0.5;
-    const snowflakeColor = 'white';
-    function createSnowflake() {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.style.fontSize = `${snowflakeSize}px`;
-        snowflake.style.color = snowflakeColor;
-        snowflake.style.position = 'absolute';
-        snowflake.style.top = `${Math.random() * window.innerHeight}px`;
-        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
-        snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
-        snowflake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
-        snowflake.textContent = '*';
-        document.body.appendChild(snowflake);
+    function enableMockMode() {
+        document.body.classList.add("rainbow-text");
+        document.body.classList.add("dark-mode");
     }
-
-    function animateSnowflakes() {
-        const snowflakes = document.querySelectorAll('.snowflake');
-        snowflakes.forEach((snowflake, index) => {
-            snowflake.style.top = `${Math.random() * window.innerHeight}px`;
-            snowflake.style.left = `${Math.random() * window.innerWidth}px`;
-            snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
-            snowflake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
-        });
-    }
-
-    for (let i = 0; i < snowflakes; i++) {
-        createSnowflake();
-    }
-
-    setInterval(animateSnowflakes, 1000);
 </script>
-</body>
-<!-------------------------------------------------------------------------------->
 
-<!--The School Logo-->
-<a href="https://johndeweyhighschool.org" target="_blank"><img src="school-logo.png" class="fixed top-20 right-4 w-12 h-12 md:w-24 md:h-24" alt="School Logo" style="filter: brightness(1);"></a>
+<script>
+    window.onload = function() {
+        document.getElementById('popup-container').classList.remove('hidden');
+    }
+</script>
+<!------------------------------------------------------------------------------------->
 
-<!-- Footer -->
+
+<!--JDHS Logo-->
+
+    <a href="https://johndeweyhighschool.org" target="_blank">
+        <img src="school-logo.png" class="fixed top-20 right-4 w-12 h-12 md:w-24 md:h-24" alt="School Logo" style="filter: brightness(1);">
+    </a>
+
+<!-------------------------------------------->
+
+    <!-- Footer -->
 <footer class="bg-gray-800 text-white text-center py-4"> 
-<footer class="bg-gray-800 text-white text-center py-4">
-<div class="container mx-auto px-4">
-    <div class="flex flex-row justify-center mb-4">
+    <footer class="bg-gray-800 text-white text-center py-4">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-row justify-center mb-4">
 
-        <!--Instagram-->
+            <!--Instagram-->
 <a href="https://www.instagram.com/jdhs_mock_trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
-</svg>
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+    </svg>
 </a>
 
-        <!--Facebook-->
-        <a href="https://www.facebook.com/jdhs.mock.trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-            </svg>
-        </a>
+            <!--Facebook-->
+            <a href="https://www.facebook.com/jdhs.mock.trial/" target="_blank" class="text-gray-400 hover:text-white mr-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+            </a>
 
-        <!--Twitter-->
-        <a href="https://twitter.com/jdhs_mock_trial" target="_blank" class="text-gray-400 hover:text-white mr-4">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-            </svg>
-        </a>
+            <!--Twitter-->
+            <a href="https://twitter.com/jdhs_mock_trial" target="_blank" class="text-gray-400 hover:text-white mr-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <!--Lower of the Footer-->
+        <p>Website designed and developed by Leon Gladyshev.</p>
+        <p>Contact us at <a href="mailto:mocktrialjdhs@gmail.com" class="text-gray-400 hover:text-white">jdhs.mock.trial@gmail.com</a> for more information.</p>
     </div>
-
-    <!--Lower of the Footer-->
-    <p>Website designed and developed by Leon Gladyshev.</p>
-    <p>Contact us at <a href="mailto:mocktrialjdhs@gmail.com" class="text-gray-400 hover:text-white">jdhs.mock.trial@gmail.com</a> for more information.</p>
-</div>
 </footer>
 
-    <!--Copy Right-->
-<p>&copy; 2025 JDHS Dragon's Scales Mock Trial Team. All rights reserved.</p>
+        <!--Copy Right-->
+    <p>&copy; 2025 JDHS Dragon's Scales Mock Trial Team. All rights reserved.</p>
 </footer>
+
 </body>
 </html>
+
