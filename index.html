@@ -486,22 +486,6 @@ function changeTheme() {
   animate();
 </script>
 
-<script>
-    function loadUserPreferences() {
-        const theme = localStorage.getItem('theme');
-
-        if (!theme) {
-            document.getElementById('theme').value = 'dark';
-            changeTheme();
-        } else {
-            document.getElementById('theme').value = theme;
-            changeTheme();
-        }
-    }
-
-    loadUserPreferences();
-</script>
-
 <!-------------------------------------------------------------------------------->
 
     <!-- The Banner Section -->
@@ -892,6 +876,7 @@ function changeTheme() {
         <!--Copy Right-->
     <p>&copy; 2025 JDHS Dragon's Scales Mock Trial Team. All rights reserved.</p>
 </footer>
-</style>
+
+</body>
 </html>
 
