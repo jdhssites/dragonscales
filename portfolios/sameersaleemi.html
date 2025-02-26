@@ -322,8 +322,7 @@ function changeTheme() {
 
 <!--Dragon Scales Logo (THIS IS THE TITLE ALL THE WAY AT THE TOP)-->
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
-<h1 class="text-3xl font-bold uppercase md:text-4xl" style="background-image: url('../NYCBanner.jpg'); background-size: 100% 100%; background-position: center; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dragon Scales</h1>
-
+<h1 class="text-3xl font-bold uppercase md:text-4xl" style="background-image: url('../NYCBanner.jpg'); background-size: 100% 100%; background-position: center; -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);">Dragon Scales</h1>
     <!-- Normal Navigation (Hidden on Mobile) -->
     <nav class="hidden md:flex">
 
@@ -429,15 +428,154 @@ function changeTheme() {
     }
 </style>
 
+
+
+<!--TESTING-->
+
+
+
+
+
+<script>
+    document.body.classList.add("hacker-mode");
+</script>
+
+<style>
+    .hacker-mode {
+        background-color: #000;
+        color: rgba(160, 72, 0, 0.781);
+    }
+    .hacker-mode .bg-white {
+        background-color: rgba(255, 153, 70, 0.432);
+    }
+    .hacker-mode .text-white {
+        color: rgba(255, 255, 255, 0.781);
+    }
+    .hacker-mode .text-gray-700 {
+        color: rgba(255, 255, 255, 0.781);
+    }
+    .hacker-mode .text-gray-800 {
+        color: rgb(255, 255, 255);
+    }
+    .hacker-mode .text-gray-900 {
+        color: rgb(255, 255, 255);
+    }
+    .hacker-mode .bg-gray-100 {
+        background-color: rgba(255, 153, 70, 0.432);
+    }
+    .hacker-mode .bg-gray-200 {
+        background-color: #000;
+    }
+    .hacker-mode .bg-gray-800 {
+        background-color: #000;
+    }
+    .hacker-mode .shadow-md {
+        box-shadow: 0 0 10px rgba(160, 72, 0, 0.781);
+    }
+    .hacker-mode .bg-blue-500, .hacker-mode .bg-orange-500 {
+        color: #fff;
+    }
+    .hacker-mode .bg-blue-500:hover, .hacker-mode .bg-orange-500:hover {
+        color: #fff;
+    }
+</style>
+
+<style>
+    .text-gray-700, .text-gray-800, .text-gray-900, .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-white, .text-gray-600, .text-gray-400, .text-blue-600, .text-orange-500, .text-orange-700, .text-blue-500, .text-blue-700 {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+</style>
+
+
+<canvas id="snow" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+<script>
+  const canvas = document.getElementById('snow');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let snowflakes = [];
+
+  function Snowflake() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 5 + 2;
+    this.speed = Math.random() * 2 + 1;
+  }
+
+  Snowflake.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.fill();
+  };
+
+  Snowflake.prototype.update = function() {
+    this.y += this.speed;
+    if (this.y > canvas.height) {
+      this.y = -this.size;
+      this.x = Math.random() * canvas.width;
+    }
+  };
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < snowflakes.length; i++) {
+      snowflakes[i].draw();
+      snowflakes[i].update();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  for (let i = 0; i < 100; i++) {
+    snowflakes.push(new Snowflake());
+  }
+
+  animate();
+</script>
+
 <!--Where the Page ACTUALLY Starts-->
 
 <div class="container mx-auto p-4 pt-6 mt-10 bg-white rounded-lg shadow-md">
     <div class="flex justify-center mb-4">
-        <h1 class="text-4xl font-bold text-gray-800">Portfolio</h1>
-    </div>
+        <h1 class="text-4xl font-bold text-gray-800 animate-pulse">Just a chill guy.</h1>
+
+    <style>
+        .animate-pulse {
+            animation: pulse 5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translateX(-1%);
+            }
+            50% {
+                transform: translateX(56%);
+            }
+            100% {
+                transform: translateX(-1%);
+            }
+        }
+        @media (min-width: 769px) {
+            @keyframes pulse {
+                0% {
+                    transform: translateX(-200%);
+                }
+                50% {
+                    transform: translateX(200%);
+                }
+                100% {
+                    transform: translateX(-200%);
+                }
+            }
+        }
+    </style>
+</div>
     <div class="container mx-auto p-4 bg-gray-100 rounded-lg shadow-md mb-4">
         <div class="flex flex-col items-center justify-center mb-4">
-            <img class="w-64 h-64 rounded-full object-cover" src="../law.png" alt="Profile Picture">
+            <img class="w-64 h-64 rounded-full object-cover" src="../chillguysameer.jpg" alt="Profile Picture">
             <h2 class="text-3xl font-bold text-gray-800 mt-4">Sameer Saleemi</h2>
             <p class="text-xl text-gray-600">Defense Attorney</p>
         </div>
@@ -544,5 +682,4 @@ function changeTheme() {
     <!--Copy Right-->
 <p>&copy; 2025 JDHS Dragon's Scales Mock Trial Team. All rights reserved.</p>
 </footer>
-</body>
 </html>

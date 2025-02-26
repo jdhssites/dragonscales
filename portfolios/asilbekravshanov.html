@@ -435,62 +435,56 @@ function changeTheme() {
 <body>
 
 <!-- Money Rain -->
-<div id="money-rain" class="fixed top-0 left-0 w-full h-full pointer-events-none"></div>
-
+<canvas id="money" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;"></canvas>
 <script>
-  const moneyRain = document.getElementById('money-rain');
+  const canvas = document.getElementById('money');
+  const ctx = canvas.getContext('2d');
 
-  function createMoney() {
-    const money = document.createElement('div');
-    money.classList.add('money');
-    money.style.top = `${Math.random() * 120}%`;
-    money.style.left = `${Math.random() * 100}%`;
-    money.style.transform = `rotate(${Math.random() * 360}deg)`;
-    money.style.animationDelay = '0s';
-    money.style.fontSize = '30px';
-    money.style.color = `${Math.random() < 0.5 ? 'gold' : 'green'}`;
-    money.textContent = '$';
-    moneyRain.appendChild(money);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-    setTimeout(() => {
-        money.remove();
-    }, 5000);
-}
+  let money = [];
 
-  setInterval(createMoney, 100);
+  function Money() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 10 + 17;
+    this.speed = Math.random() * 2 + 1;
+    this.color = Math.random() < 0.5 ? 'green' : 'gold';
+  }
+
+  Money.prototype.draw = function() {
+    ctx.font = `${this.size}px Arial`;
+    ctx.fillStyle = this.color;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('$', this.x, this.y);
+  };
+
+  Money.prototype.update = function() {
+    this.y += this.speed;
+    if (this.y > canvas.height) {
+      this.y = -this.size;
+      this.x = Math.random() * canvas.width;
+    }
+  };
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < money.length; i++) {
+      money[i].draw();
+      money[i].update();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  for (let i = 0; i < 100; i++) {
+    money.push(new Money());
+  }
+
+  animate();
 </script>
 
-<style>
-  .money {
-    position: absolute;
-    animation: fall 5s linear;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(100vh);
-    }
-  }
-</style>
-
-<style>
-  .money {
-    position: absolute;
-    animation: fall 5s linear;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(100vh);
-    }
-  }
-</style>
 
 <style>
 .hacker-mode {

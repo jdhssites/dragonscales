@@ -438,63 +438,53 @@ function changeTheme() {
 
 
 <!--Snowflake Animation-->
-<body>
-    <style>
-.snowflake {
-    position: absolute;
-    font-size: 1rem;
-    pointer-events: none;
-    z-index: 1000;
-    font-family: Arial, sans-serif;
-    animation: fall 5s linear infinite;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100vh);
-    }
-}
-</style>
-
+<canvas id="snow" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;"></canvas>
 <script>
-    const snowflakes = 200;
-    const snowflakeSize = 10;
-    const snowflakeSpeed = 0.5;
-    const snowflakeColor = 'white';
-    function createSnowflake() {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.style.fontSize = `${snowflakeSize}px`;
-        snowflake.style.color = snowflakeColor;
-        snowflake.style.position = 'absolute';
-        snowflake.style.top = `${Math.random() * window.innerHeight}px`;
-        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
-        snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
-        snowflake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
-        snowflake.textContent = '*';
-        document.body.appendChild(snowflake);
-    }
+  const canvas = document.getElementById('snow');
+  const ctx = canvas.getContext('2d');
 
-    function animateSnowflakes() {
-        const snowflakes = document.querySelectorAll('.snowflake');
-        snowflakes.forEach((snowflake, index) => {
-            snowflake.style.top = `${Math.random() * window.innerHeight}px`;
-            snowflake.style.left = `${Math.random() * window.innerWidth}px`;
-            snowflake.style.transform = `rotate(${Math.random() * 360}deg)`;
-            snowflake.style.animation = `fall ${Math.random() * 10 + 5}s linear infinite`;
-        });
-    }
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-    for (let i = 0; i < snowflakes; i++) {
-        createSnowflake();
-    }
+  let snowflakes = [];
 
-    setInterval(animateSnowflakes, 1000);
+  function Snowflake() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 5 + 2;
+    this.speed = Math.random() * 2 + 1;
+  }
+
+  Snowflake.prototype.draw = function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    ctx.fill();
+  };
+
+  Snowflake.prototype.update = function() {
+    this.y += this.speed;
+    if (this.y > canvas.height) {
+      this.y = -this.size;
+      this.x = Math.random() * canvas.width;
+    }
+  };
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < snowflakes.length; i++) {
+      snowflakes[i].draw();
+      snowflakes[i].update();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  for (let i = 0; i < 100; i++) {
+    snowflakes.push(new Snowflake());
+  }
+
+  animate();
 </script>
-</body>
 
 <script>
     function loadUserPreferences() {
