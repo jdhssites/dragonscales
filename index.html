@@ -322,6 +322,15 @@ function changeTheme() {
 
 </style>
 
+
+
+
+
+<!--Top of the page-->
+
+
+
+
 <!--Dragon Scales Logo (THIS IS THE TITLE ALL THE WAY AT THE TOP)-->
 <div class="container mx-auto flex justify-between items-center px-4 py-8">
 <h1 class="text-3xl font-bold uppercase md:text-4xl" style="background-image: url('NYCBanner.jpg'); background-size: 100% 100%; background-position: center; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dragon Scales</h1>
@@ -532,40 +541,41 @@ function changeTheme() {
     <!--The Image-->
     <style>
         .section-bg {
-            position: relative;
-            background-image: url('NYCBanner.jpg');
-            background-size: cover;
-            background-position: center;
-        }
+        position: relative;
+        background-image: url('NYCBanner.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 70vh;
+    }
 
-        .section-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Overlay to darken the image */
-            z-index: 1;
-        }
+    .section-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Overlay to darken the image */
+        z-index: 1;
+    }
 
-        .section-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
+    .section-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
 
-        .glow-bright-white {
-            text-shadow: 0 0 10px #fff;
-        }
+    .glow-bright-white {
+        text-shadow: 0 0 10px #fff;
+    }
 
-        .glow-bright-yellow {
-            box-shadow: 0 0 10px #FFD700;
-        }
-    </style>
-</head>
+    .glow-bright-yellow {
+        box-shadow: 0 0 10px #FFD700;
+    }
+</style>
+
 <body>
-    <section class="bg-gray-100 py-24 section-bg">
+    <section class="bg-gray-100 py-24 section-bg flex justify-center items-center">
         <div class="section-content">
             <!--Mock Trial Title-->
             <h2 class="text-5xl font-bold uppercase text-center mb-4 text-white glow-bright-white">Mock Trial</h2>
