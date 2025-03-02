@@ -564,6 +564,7 @@ function changeTheme() {
     }
 }
 
+
 @media only screen and (min-width: 768px) {
     .section-bg {
         position: relative;
@@ -588,6 +589,20 @@ function changeTheme() {
             background-image: url('NYCBanner.jpg');
         }
     }
+}
+
+/* Add this to your CSS to ensure images are loaded properly on smaller resolutions */
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Add this to your CSS to ensure images are loaded properly on smaller resolutions */
+.section-bg {
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 </style>
 
