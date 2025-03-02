@@ -536,16 +536,30 @@ function changeTheme() {
 
 
 
-    <!-- The Banner Section -->
 
-    <!--The Image-->
-    <style>
-        .section-bg {
+<style>
+    .section-bg {
         position: relative;
-        background-image: url('NYCBanner.jpg');
         background-size: cover;
         background-position: center;
         height: 70vh;
+        background-image: url('NYCBanner.jpg');
+        animation: bannerAnimation 10s infinite;
+    }
+
+    @keyframes bannerAnimation {
+        0% {
+            background-image: url('NYCBanner.jpg');
+        }
+        33% {
+            background-image: url('NYCBanner2.jpg');
+        }
+        66% {
+            background-image: url('NYCBanner3.jpg');
+        }
+        100% {
+            background-image: url('NYCBanner.jpg');
+        }
     }
 
     .section-bg::before {
@@ -555,8 +569,8 @@ function changeTheme() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Overlay to darken the image */
-        z-index: 1;
+        background: rgba(0, 0, 0, 0.6); /* Overlay to darken the image */
+        z-index: 0.5;
     }
 
     .section-content {
@@ -589,6 +603,11 @@ function changeTheme() {
             </div>
         </div>
     </section>
+
+
+
+
+
 
 <!-------------------------------------------------------------------------------------------->
 
