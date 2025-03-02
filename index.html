@@ -590,6 +590,38 @@ function changeTheme() {
         </div>
     </section>
 
+    <style>
+    .section-bg {
+        position: relative;
+        background-image: url('NYCBanner.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 70vh;
+        animation: banner-change 8s infinite;
+    }
+
+@keyframes banner-change {
+    0% {
+        background-image: url('NYCBanner.jpg');
+    }
+    33% {
+        background-image: url('NYCBanner2.jpg');
+    }
+    66% {
+        background-image: url('NYCBanner3.jpg');
+    }
+    100% {
+        background-image: url('NYCBanner.jpg');
+    }
+}
+
+    @media only screen and (max-width: 768px) {
+        .section-bg {
+            height: 50vh;
+        }
+    }
+</style>
+
 <!-------------------------------------------------------------------------------------------->
 
 <section class="bg-gray-100 py-12"></section>
