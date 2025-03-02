@@ -420,9 +420,15 @@ function changeTheme() {
         sidebar.classList.remove('-translate-x-full');
     });
 
-    closeBtn.addEventListener('click', () => {
+closeBtn.addEventListener('click', () => {
+    sidebar.classList.add('-translate-x-full');
+});
+
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
         sidebar.classList.add('-translate-x-full');
-    });
+    }
+});
 </script>
 
 <!-- CSS to Hide Normal Menu and Show Burger on Mobile -->
