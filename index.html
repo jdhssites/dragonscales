@@ -535,75 +535,43 @@ function changeTheme() {
 
 
 
-<!--BANNER SECTION-->
 
-<style>
-@media only screen and (max-width: 768px) {
-    .section-bg {
+    <!-- The Banner Section -->
+
+    <!--The Image-->
+    <style>
+        .section-bg {
         position: relative;
+        background-image: url('NYCBanner.jpg');
         background-size: cover;
         background-position: center;
         height: 70vh;
-        background-image: url('NYCBanner.jpg');
-        animation: bannerAnimation 10s infinite;
     }
 
-    @keyframes bannerAnimation {
-        0% {
-            background-image: url('NYCBanner.jpg');
-        }
-        33% {
-            background-image: url('NYCBanner2.jpg');
-        }
-        66% {
-            background-image: url('NYCBanner3.jpg');
-        }
-        100% {
-            background-image: url('NYCBanner.jpg');
-        }
+    .section-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Overlay to darken the image */
+        z-index: 1;
     }
-}
 
-
-@media only screen and (min-width: 768px) {
-    .section-bg {
+    .section-content {
         position: relative;
-        background-size: cover;
-        background-position: center;
-        height: 70vh;
-        background-image: url('NYCBanner.jpg');
-        animation: bannerAnimation 10s infinite;
+        z-index: 2;
+        text-align: center;
     }
 
-    @keyframes bannerAnimation {
-        0% {
-            background-image: url('NYCBanner.jpg');
-        }
-        33% {
-            background-image: url('NYCBanner2.jpg');
-        }
-        66% {
-            background-image: url('NYCBanner3.jpg');
-        }
-        100% {
-            background-image: url('NYCBanner.jpg');
-        }
+    .glow-bright-white {
+        text-shadow: 0 0 10px #fff;
     }
-}
 
-/* Add this to your CSS to ensure images are loaded properly on smaller resolutions */
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Add this to your CSS to ensure images are loaded properly on smaller resolutions */
-.section-bg {
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+    .glow-bright-yellow {
+        box-shadow: 0 0 10px #FFD700;
+    }
 </style>
 
 <body>
@@ -621,11 +589,6 @@ img {
             </div>
         </div>
     </section>
-
-
-
-
-
 
 <!-------------------------------------------------------------------------------------------->
 
